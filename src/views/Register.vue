@@ -39,6 +39,7 @@
                     <i class="gg-heart"></i>
                     <select required v-model="register_form.preference">
                         <option value="null" disabled selected>Food Preference</option>
+                        <option value="Nopreference">No preference</option>
                         <option value="Vegetarian">Vegetarian</option>
                         <option value="Gluten-free">Gluten-free</option>
                         <option value="Halal">Halal</option>
@@ -76,7 +77,7 @@ export default {
                 var password1 = document.getElementById("password").value;
 				var password2 = document.getElementById("password_c").value;
 				if (password1 !== password2) {
-					throw "Passwords do not match";
+					throw new Error("Passwords do not match");
 				}
                 await createUserWithEmailAndPassword(
                     auth,
@@ -101,7 +102,7 @@ export default {
                         alert("Weak password");
                         break;
                     default:
-                        alert("Passwords do not match");
+                        alert(error.message);
                 }
                 return;
             }

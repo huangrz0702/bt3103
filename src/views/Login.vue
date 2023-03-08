@@ -1,7 +1,13 @@
 <template>
-<link href='https://unpkg.com/css.gg@2.0.0/icons/css/mail.css' rel='stylesheet'>
-<link href='https://unpkg.com/css.gg@2.0.0/icons/css/lock.css' rel='stylesheet'>
-<main class="Container">
+  <link
+    href="https://unpkg.com/css.gg@2.0.0/icons/css/mail.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://unpkg.com/css.gg@2.0.0/icons/css/lock.css"
+    rel="stylesheet"
+  />
+  <main class="Container">
     <div>
       <section class="form">
         <form class="login" @submit.prevent="login">
@@ -61,7 +67,13 @@ export default {
           this.login_form.email,
           this.login_form.password
         ).then(() => {
-          alert("Log in successfully!");
+          const user = auth.currentUser;
+          if (user && !user.emailVerified) {
+            console.log("The user has not verified his/her email yet")
+            throw new Error("Email has not been verified");
+          } else {
+            alert("Log in successfully!");
+          }
         });
       } catch (error) {
         switch (error.code) {
@@ -72,7 +84,8 @@ export default {
             alert("Wrong password");
             break;
           default:
-            alert("Something went wrong");
+            alert(error.message);
+
         }
         return;
       }
@@ -106,7 +119,7 @@ h2 {
 }
 
 .form {
-  float:right;
+  float: right;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -150,32 +163,30 @@ p {
 }
 
 .gg-mail {
-    overflow: hidden;
-    transform: scale(var(--ggs,1));
-    position: absolute;
-    width: 19px;
-    top: auto;
-    left: 0px;
-    border-radius: 2px;
+  overflow: hidden;
+  transform: scale(var(--ggs, 1));
+  position: absolute;
+  width: 19px;
+  top: auto;
+  left: 0px;
+  border-radius: 2px;
 }
 
 .gg-lock {
-    box-sizing: border-box;
-    position: absolute;
-    display: block;
-    transform: scale(var(--ggs,1));
-    width: 12px;
-    height: 11px;
-    border: 2px solid;
-    border-top-right-radius: 50%;
-    border-top-left-radius: 50%;
-    border-bottom: transparent;
-    margin-top: -12px;
-    top: auto;
-    left: 5px;
+  box-sizing: border-box;
+  position: absolute;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  width: 12px;
+  height: 11px;
+  border: 2px solid;
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  border-bottom: transparent;
+  margin-top: -12px;
+  top: auto;
+  left: 5px;
 }
-
-
 
 .btn {
   width: 30%;
