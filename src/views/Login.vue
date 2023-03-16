@@ -69,7 +69,7 @@ export default {
         ).then(() => {
           const user = auth.currentUser;
           if (user && !user.emailVerified) {
-            console.log("The user has not verified his/her email yet")
+            console.log("The user has not verified his/her email yet");
             throw new Error("Email has not been verified");
           } else {
             alert("Log in successfully!");
@@ -85,7 +85,6 @@ export default {
             break;
           default:
             alert(error.message);
-
         }
         return;
       }

@@ -1,15 +1,15 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/Login">Login</router-link> |
-    <router-link to="/Register">Register</router-link>
-  </div>
-  <router-view/>
+<navBar/>
 </template>
 
 <script>
+import navBar from '../src/components/icons/navBar.vue'
+
 export default {
   name: 'App',
+  components: {
+    navBar,
+  }
 }
 
 </script>
@@ -23,20 +23,6 @@ export default {
   color: #2c3e50;
   margin-top: 30px
 }
-
-#nav {
-  padding: 30px
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-
 #bg {
   display: block;
   margin-left: auto;
