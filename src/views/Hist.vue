@@ -1,10 +1,10 @@
 <template>
-    <h3> This is the food filter page</h3>
+    <h3> This is the history page</h3>
 </template>
 
 <script>
 export default {
-    name: "Food",
+    name: "Hist",
     components: {
     },
   };

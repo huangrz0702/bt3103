@@ -57,8 +57,36 @@ export default {
     return {
       login_form,
     };
+  
+  },
+  data() {
+    return {
+      loggedIn: false,
+      user: {}
+    };
   },
 
+  // props: {
+  //   loggedIn: {
+  //     type: Boolean,
+  //     required: true
+  //   },
+  //   // user: {
+  //   //   type: Object,
+  //   //   required: true
+  //   // }
+  // },
+  created() {
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        this.loggedIn = true;
+        // this.user = user;
+      } else {
+        this.loggedIn = false;
+        // this.user = {};
+      }
+    });
+  },
   methods: {
     async login() {
       try {
@@ -69,10 +97,14 @@ export default {
         ).then(() => {
           const user = auth.currentUser;
           if (user && !user.emailVerified) {
+            // handle user who did not verify email
             console.log("The user has not verified his/her email yet");
             throw new Error("Email has not been verified");
           } else {
+            // successful login
             alert("Log in successfully!");
+            console.log(this.loggedIn);
+            // console.log(this.user);
           }
         });
       } catch (error) {

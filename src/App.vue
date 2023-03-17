@@ -1,5 +1,5 @@
 <template>
-<navBar/>
+<navBar />
 <footerBox />
 </template>
 
