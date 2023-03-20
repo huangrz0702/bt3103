@@ -14,7 +14,7 @@ export default {
     footerBox,
   }
 }
-
+//
 </script>
 
 <style>
