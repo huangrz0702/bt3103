@@ -1,11 +1,16 @@
 <template>
-    <h3>This is the profile page</h3>
+  <ProfileBar />
+  <MyProfile />
 </template>
 
 <script>
+import ProfileBar from "../components/ProfileBar.vue";
+import MyProfile from "../components/MyProfile.vue";
+
 export default {
-    name: "Profile",
-    components: {
-    },
-  };
+  components: {
+    ProfileBar,
+    MyProfile,
+  },
+};
 </script>

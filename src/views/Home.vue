@@ -1,13 +1,23 @@
 <template>
-  <h3>This is the homepage</h3>
-  <h2>Welcome to meNUS</h2>
+  <SlidingImages />
+  <TrendingFood />
+  <Locations />
+  <RelatedLinks />
 </template>
 
 <script>
+import SlidingImages from "../components/SlidingImages.vue";
+import TrendingFood from "../components/TrendingFood.vue";
+import Locations from "../components/Locations.vue";
+import RelatedLinks from "../components/RelatedLinks.vue";
 
 export default {
-  name: "Home",
+  name: "App",
   components: {
+    SlidingImages,
+    TrendingFood,
+    Locations,
+    RelatedLinks,
   },
 };
 </script>
