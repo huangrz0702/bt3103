@@ -1,72 +1,133 @@
 <template>
-  <div class="sliding-images">
-    <div class="slider">
-      <div v-for="(image, index) in images" :key="index" class="slide">
-        <img :src="image" alt="Slide Image" />
-      </div>
+  <div>
+    <a @click="move(1)">&lt;</a>
+    <a @click="move(-1)">&gt;</a>
+    <div id="div1" ref="carousel">
+      <ul ref="carouselList">
+        <li v-for="(image, index) in images" :key="index">
+          <img :src="image" />
+        </li>
+        <div style="clear: none;"></div>
+      </ul>
     </div>
   </div>
 </template>
 
-<script>
-import Pancakes from "../assets/pic/Pancakes.jpg";
-import Jajangmyeon from "../assets/pic/Jajangmyeon.jpg";
-import Xiaolongbao from "../assets/pic/Xiaolongbao.jpg";
 
+<script>
 export default {
   data() {
     return {
-      images: [Pancakes, Jajangmyeon, Xiaolongbao], // Replace with your own image paths
+      images: [
+        "src/assets/pic/download.jpg",
+        "src/assets/pic/download-1.jpg",
+        "src/assets/pic/download-2.jpg",
+        "src/assets/pic/download-3.jpg",
+        "src/assets/pic/download-4.jpg",
+        "src/assets/pic/xiaolongbao.jpg",
+        "src/assets/pic/Jajangmyeon.jpg",
+      ],
+      timer: null,
+      iSpeed: 250,
     };
   },
   mounted() {
-    this.initSlider();
+    const carouselList = this.$refs.carouselList;
+    carouselList.innerHTML += carouselList.innerHTML;
+    carouselList.style.width = carouselList.children.length * carouselList.children[0].offsetWidth + "px";
   },
   methods: {
-    initSlider() {
-      let slideIndex = 0;
-      const slides = document.querySelectorAll(".slide");
-      slides[slideIndex].classList.add("active");
+    move(iDirection) {
+      clearInterval(this.timer);
+      const carouselList = this.$refs.carouselList;
+      const iTarget = carouselList.offsetLeft - iDirection * this.iSpeed;
+      const iInterval = this.iSpeed / 10;
+      let iLeft = carouselList.offsetLeft;
+      let bEnd = false;
 
-      setInterval(() => {
-        slides[slideIndex].classList.remove("active");
-        slideIndex++;
-        if (slideIndex >= slides.length) {
-          slideIndex = 0;
+      this.timer = setInterval(() => {
+        if (bEnd) {
+          clearInterval(this.timer);
+          return;
         }
-        slides[slideIndex].classList.add("active");
-      }, 3000);
+        if (iDirection > 0) {
+          if (carouselList.offsetLeft <= iTarget) {
+            carouselList.style.left = iTarget + "px";
+            bEnd = true;
+          } else {
+            carouselList.style.left = iLeft - iInterval + "px";
+            iLeft = carouselList.offsetLeft;
+          }
+        } else {
+          if (carouselList.offsetLeft >= iTarget) {
+            carouselList.style.left = iTarget + "px";
+            bEnd = true;
+          } else {
+            carouselList.style.left = iLeft + iInterval + "px";
+            iLeft = carouselList.offsetLeft;
+          }
+        }
+      }, 10);
     },
   },
 };
 </script>
 
-<style>
-.sliding-images {
-  margin-top: 20px; /* Adjust this to your liking */
-  height: 300px; /* Adjust this to your desired height */
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#div1 {
+  position: relative;
+  border: 1px solid #0ff;
+  width: 100%;
+  height: 350px;
+  margin: 50px auto 0;
   overflow: hidden;
 }
 
-.slider {
-  display: flex;
+#div1 ul {
+  position: absolute;
+  left: 0;
+}
+
+#div1 ul li {
+  list-style: none;
+  width: 400px;
+  float: left;
+  padding: 10px;
+  height: 70%;
+  margin-top: 0px;
+}
+
+#div1 ul li img {
   width: 100%;
+  height: 300px;
 }
 
-.slide {
-  flex: 1;
-  height: 100%;
-  transition: transform 0.5s ease-in-out;
-  transform: translateX(100%);
+a {
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  text-decoration: none;
+  color: #030202;
+  background-color: rgba(253, 250, 250, 0.5);
+  top: 0%;
 }
 
-.slide.active {
-  transform: translateX(0%);
+a:nth-of-type(1) {
+    right: 70px;
+    transform: translateY(730px);
 }
 
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+a:nth-of-type(2) {
+    right: 10px;
+    transform: translateY(730px);
 }
+
+
 </style>
