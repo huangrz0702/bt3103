@@ -20,15 +20,15 @@
 
 		<h3>Profile Page Menu</h3>
 		<div class="menu">
-			<router-link to="/" class="button">
+			<router-link to="/Profile" class="button">
 				<span class="material-icons"><i class="gg-user"></i></span>
 				<span class="text">My Profile</span>
 			</router-link>
-			<router-link to="/about" class="button">
+			<router-link to="/Preference" class="button">
 				<span class="material-icons"><i class="gg-heart"></i></span>
 				<span class="text">My Preference</span>
 			</router-link>
-			<router-link to="/team" class="button">
+			<router-link to="/Hist" class="button">
 				<span class="material-icons"><i class="gg-bookmark"></i></span>
 				<span class="text">My History</span>
 			</router-link>

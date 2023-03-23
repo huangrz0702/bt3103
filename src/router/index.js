@@ -43,7 +43,7 @@ const routes = [
         path: '/Hist',
         name: 'Hist',
         component: Hist
-    }  , {
+    } , {
         path: '/Promotion',
         name: 'Promotion',
         component: Promotion
