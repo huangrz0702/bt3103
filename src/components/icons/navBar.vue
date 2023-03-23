@@ -64,7 +64,6 @@ export default {
 
 <style lang="scss" scoped>
 #nav {
-  padding: 50px;
   background-color: rgba(120, 244, 181, 1);
   max-height: 250px;
 }
@@ -87,7 +86,7 @@ export default {
 }
 
 .dropdown .dropbtn {
-  font-size: 16px;
+  font-size: 20px;
   border: none;
   outline: none;
   color: black;

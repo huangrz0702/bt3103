@@ -19,9 +19,7 @@
   <div class="footer">
     <MDBFooter bg="white" :text="['center', 'black']">
       <MDBContainer class="p-4">
-        <section class="mb-3">
-          <img src="../../assets/pic/transparent_logo.png" alt="meNUS logo" />
-        </section>
+        <img src="../../assets/pic/transparent_logo.png" alt="meNUS logo" />
 
         <section class="mb-3">
           <MDBRow>
@@ -62,10 +60,10 @@
               <h5 class="text-uppercase">Contact Us</h5>
               <ul class="list-unstyled mb-0">
                 <li>
-                  <h8>15 Computing Dr</h8>
+                  <h5>15 Computing Dr</h5>
                 </li>
                 <li>
-                  <h8>Singapore 117418</h8>
+                  <h5>Singapore 117418</h5>
                 </li>
               </ul>
             </MDBCol>
@@ -103,17 +101,17 @@ import {
 </script>
 
 <style scoped>
+
 img {
-  max-width: 100%;
-  display: block;
-  margin-right: auto;
-  width: 150px;
+  width: 100px;
   height: auto;
 }
 
 div {
-  max-width: 1600px;
+  max-width: 100%;
   background-color: rgba(255, 192, 203, 1);
+  font-size: 20px;
+
 }
 .mb-4 {
   display: flex;
