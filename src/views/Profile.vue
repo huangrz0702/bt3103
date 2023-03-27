@@ -1,11 +1,16 @@
 <template>
-  <ProfileBar />
-  <MyProfile />
+  <div id="container1">
+    <ProfileBar />
+    <MyProfile />
+  </div>
+  
+
 </template>
 
 <script>
 import ProfileBar from "../components/ProfileBar.vue";
 import MyProfile from "../components/MyProfile.vue";
+
 
 export default {
   components: {
@@ -14,3 +19,9 @@ export default {
   },
 };
 </script>
+
+<style>
+#container1{
+  display: flex;
+}
+</style>
