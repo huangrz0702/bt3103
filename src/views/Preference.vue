@@ -1,4 +1,5 @@
 <template>
+    
     <ProfileBar />
     <h3> This is the preference info</h3>
 </template>
@@ -15,3 +16,4 @@ export default {
     },
   };
 </script>
+

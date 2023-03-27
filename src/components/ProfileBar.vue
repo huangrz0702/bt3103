@@ -1,4 +1,5 @@
 <template>
+
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/arrow-align-h.css' rel='stylesheet'>
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/user.css' rel='stylesheet'>
   <link href='https://unpkg.com/css.gg@2.0.0/icons/css/heart.css' rel='stylesheet'>
@@ -17,6 +18,8 @@
 				<span class="material-icons"><i class="gg-arrow-align-h"></i></span>
 			</button>
 		</div>
+
+		<avatar-input v-if="is_expanded"></avatar-input>
 
 		<h3>Profile Page Menu</h3>
 		<div class="menu">
@@ -38,11 +41,15 @@
 
 <script setup>
 import { ref } from 'vue'
+import AvatarInput from './AvatarInput.vue';
+
 const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
 const ToggleMenu = () => {
 	is_expanded.value = !is_expanded.value
 	localStorage.setItem("is_expanded", is_expanded.value)
 }
+
+
 </script>
 
 <style lang="scss" scoped>
@@ -55,6 +62,7 @@ aside {
 	min-height: 100vh;
 	padding: 1rem;
 	transition: 0.2s ease-in-out;
+
 	.flex {
 		flex: 1 1 0%;
 	}
