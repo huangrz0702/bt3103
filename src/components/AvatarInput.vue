@@ -5,7 +5,7 @@
     <div>
         <input type = "file" v-show="false" accept="image/*"  ref="file" @change="change">
         <div style="position: relative; display: inline-block;">
-            <img :src="src" alt="Avatar" style="height: 96px; width: 96px; border-radius: 50%; object-fit: cover;">
+            <img :src="src" alt="Avatar" style="height: 130px; width: 130px; border-radius: 50%; object-fit: cover;">
             <div id="photo">
             <button @click="browse()"> 
                <img :src="cameraIcon" alt="Camera Icon" 
