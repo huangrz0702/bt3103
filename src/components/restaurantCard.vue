@@ -1,6 +1,5 @@
 <template>
   <v-card
-    :loading="loading"
     class="mx-auto my-12"
     max-width="700"
     max-height="400"
@@ -19,7 +18,7 @@
       </v-col>
       <v-col cols="8">
         <v-card-item>
-          <v-card-title> {{ post.restName }}</v-card-title>
+          <v-card-title> {{ card.restName }}</v-card-title>
 
           <v-card-subtitle>
             <span class="me-1">Local Favorite</span>
@@ -28,12 +27,16 @@
         </v-card-item>
 
         <v-card-text>
+            <div class="my-4 text-subtitle-1">
+                {{ card.restLoc }}
+            </div>
+
           <div class="my-4 text-subtitle-1">
-            {{ post.restValue }} • {{ post.restType }} •
-            {{ post.restRating }} ({{ post.restRatingNum }})
+            {{ card.restValue }} • {{ card.restType }} • {{ card.restPre }} •
+            Rating: {{ card.restRating }} ({{ card.restRatingNum }})
           </div>
 
-          <div>{{ post.restDescrip }}</div>
+          <div>{{ card.restDescrip }}</div>
         </v-card-text>
 
         <v-divider class="mx-4 mb-1"></v-divider>
@@ -54,13 +57,11 @@
 <script>
 export default {
   name: "restaurantCard",
-  props: ["post"],
-  components: {},
+  props: ["card"],
+  components: {
+  },
 };
 </script>
 
 <style scoped>
-v-row {
-  margin: -12px;
-}
 </style>

@@ -2,10 +2,10 @@
   <h2>Filters</h2>
 
   <br /><br />
-
   <input id="search" placeholder="Search here" v-model="term" />
   <br />
   <input class="btn" type="submit" @click="search(term)" />
+
 
   <h3>Location</h3>
   <p
@@ -54,7 +54,9 @@
 </template>
 
 <script>
-const filters1 = ["Utown", "PGP", "The Deck"];
+
+
+const filters1 = ["All", "Utown", "PGP", "The Deck"];
 
 const filters2 = ["Singaporean", "Chinese", "Italian"];
 
@@ -72,11 +74,7 @@ export default {
     "filterRestRat",
     "filterRestPre",
     "search",
-    "filteredRestLoc",
-    "filteredRestCui",
-    "filteredRestPri",
-    "filteredRestRat",
-    "filteredRestPre",
+    "filteredRest"
   ],
   data() {
     return {
