@@ -1,10 +1,12 @@
 <template>
     <h3> This is the restaurant filter page</h3>
-    <restaurantCard
-            :post="post"
-            v-for="(post, index) in sampleRestaurantCards"
-            :key="index"
-          />
+    <div>
+    <router-link to="/SingleRestaurant">
+      <v-btn>
+        Go to one single restaurant page
+      </v-btn>
+    </router-link>
+  </div>
 </template>
 
 <script>

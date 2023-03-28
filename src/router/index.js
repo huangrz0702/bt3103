@@ -8,6 +8,7 @@ import Profile from '../views/Profile.vue'
 import Restaurant from '../views/Restaurant.vue'
 import Preference from '../views/Preference.vue'
 import Hist from '../views/Hist.vue'
+import SingleRestaurant from "../views/SingleRestaurant.vue"
 
 
 const routes = [
@@ -47,7 +48,11 @@ const routes = [
         path: '/Promotion',
         name: 'Promotion',
         component: Promotion
-    }
+    }, {
+        path: "/SingleRestaurant",
+        name: "single-restaurant",
+        component: SingleRestaurant,
+    },
 ]
 
 const router = createRouter({
