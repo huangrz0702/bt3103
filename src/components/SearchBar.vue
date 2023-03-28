@@ -1,8 +1,10 @@
 <template>
   <v-card
     class="mx-auto"
-    color="grey-lighten-3"
-    max-width="1000"
+    elevation="0"
+    width=70%
+    :style="{ backgroundColor: 'transparent' }"
+    
   >
     <v-card-text>
       <v-text-field
@@ -11,7 +13,6 @@
         variant="solo"
         label="Try searching for a location, stall, or cuisine"
         append-inner-icon="mdi-magnify"
-        single-line
         hide-details
         @click:append-inner="onClick"
       ></v-text-field>
@@ -29,7 +30,7 @@ export default {
     }),
 
     methods: {
-      onClick () {
+      onClick () { //write search logic here
         this.loading = true
 
         setTimeout(() => {

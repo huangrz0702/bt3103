@@ -1,11 +1,18 @@
 <template>
-  <photo-gallery />
-  <search-bar />
-  <SlidingImages />
+<div style="position: relative;">
+    <photo-gallery />
+    <!-- when click on the images in trending section, it all goes to the same restaurant page !-->
+
+    <search-bar
+      style="position: absolute; top: 65%; left: 15%;"
+    />
+  </div>
   
   <TrendingFood />
   <Locations />
-  <RelatedLinks />
+  <br>
+  <br>
+
 </template>
 
 <script>
