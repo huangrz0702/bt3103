@@ -1,19 +1,26 @@
 <template>
-    
+  <div id="container1">
     <ProfileBar />
-    <h3> This is the preference info</h3>
+    <Preferinfo />
+  </div>
 </template>
 
 
 <script>
 import ProfileBar from "../components/ProfileBar.vue";
+import Preferinfo from "../components/Preferinfo.vue";
 
 export default {
-    name: "Preference",
     components: {
       ProfileBar,
-
+      Preferinfo
     },
   };
 </script>
 
+
+<style>
+#container1{
+  display: flex;
+}
+</style>
