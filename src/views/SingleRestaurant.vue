@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <h1>This is the Single Restaurant Page</h1>
-  </div>
+
   <div style="display:flex; justify-content: center;">
   <rest-intro />
   <rest-about />
@@ -25,6 +23,11 @@ export default {
     RestAbout,
     App,
     Crowdedness
-  }
+  },
+  beforeRouteEnter(to, from, next) {
+    // scroll to top of page
+    window.scrollTo(0, 0);
+    next();
+  },
 };
 </script>
