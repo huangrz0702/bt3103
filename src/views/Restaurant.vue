@@ -6,7 +6,15 @@
         Go to one single restaurant page
       </v-btn>
     </router-link>
+
+    <restaurantCard
+            :post="post"
+            v-for="(post, index) in sampleRestaurantCards"
+            :key="index"
+          />
   </div>
+
+  <restaurantCard />
 </template>
 
 <script>
