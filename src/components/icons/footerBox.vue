@@ -109,7 +109,7 @@ img {
 
 div {
   max-width: 100%;
-  background-color: rgba(255, 192, 203, 1);
+  background-color: #000;
   font-size: 20px;
 
 }
